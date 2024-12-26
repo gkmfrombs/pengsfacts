@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penguin Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #007acc;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+
+        h1 {
+            color: #007acc;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #007acc;
+            border-radius: 5px;
+            background-color: #e6f7ff;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007acc;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005f99;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fun Facts About Penguins</h1>
+        <ul id="facts-list"></ul>
+        <button id="new-fact-btn">Show Another Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "Penguins are flightless birds, but they are excellent swimmers. Their wings have evolved into flippers that help them navigate through water.",
+            "There are 18 different species of penguins, ranging from the small Little Blue Penguin, which is about 16 inches tall, to the Emperor Penguin, which can stand over 4 feet tall.",
+            "Penguins are highly social animals and often live in large colonies that can number in the thousands. They communicate with each other using a variety of vocalizations.",
+            "Emperor Penguins have a unique breeding process where the male incubates the egg on his feet under a flap of skin called a brood pouch, while the female goes out to feed.",
+            "Penguins have a thick layer of blubber and dense feathers that provide insulation against the cold temperatures of their habitats, primarily found in the Southern Hemisphere.",
+            "Some penguin species can dive to impressive depths. The Emperor Penguin can dive up to 1,800 feet (550 meters) in search of food.",
+            "Penguins have a characteristic black and white coloring, which serves as camouflage. The black back helps them blend in with the dark ocean when viewed from above, while the white belly blends in with the bright surface when viewed from below.",
+            "Penguins primarily eat fish, squid, and krill. Their diet can vary depending on the species and the availability of food in their environment.",
+            "Penguins can live for a long time, with some species like the Emperor Penguin living up to 20 years in the wild.",
+            "Several penguin species are currently threatened or endangered due to climate change, habitat loss, and overfishing, making conservation efforts crucial for their survival."
+        ];
+
+        let currentFactIndex = 0;
+
+        function displayFact() {
+            const factsList = document.getElementById('facts-list');
+            factsList.innerHTML = ''; // Clear previous facts
+            const factItem = document.createElement('li');
+            factItem.textContent = facts[currentFactIndex];
+            factsList.appendChild(factItem);
+            currentFactIndex = (currentFactIndex + 1) % facts.length; // Loop through facts
+        }
+
+        document.getElementById('new-fact-btn').addEventListener('click', displayFact);
+
+        // Display the first fact on page load
+        displayFact();
+    </script>
+</body>
+</html>
